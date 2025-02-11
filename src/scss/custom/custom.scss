@@ -1,0 +1,11 @@
+// @import '.././config/variables';
+// @import '../config/variables';
+
+// Include Bootstrap and BootstrapVue SCSS files
+// @import '~bootstrap/scss/bootstrap.scss';
+// @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+// @import '~bootstrap-vue/src/index.scss';
+// new sass variables
+@import 'bootstrap';
+@import 'bootstrap/scss/bootstrap.scss';
+// @import 'bootstrap.vue/src/scss/index.scss';
