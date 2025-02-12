@@ -5,7 +5,7 @@
   </p>
   <ul class="card-content" v-else-if="!isLoading && hasCompetencies">
     <table-item
-      v-for="competency in allCompetencies"
+      v-for="competency in allCompetencies.value"
       :key="competency.id"
       :itemEntry="competency.coreComp"
       class="media-font-size"
@@ -17,7 +17,7 @@
 <script lang="ts">
 import TableItem from './TableItem.vue'
 import BaseSpinner from '../ui/BaseSpinner.vue'
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, computed } from 'vue'
 import { useTopicStore } from '@/store/topicStore'
 export default defineComponent({
   components: {
@@ -27,8 +27,8 @@ export default defineComponent({
   setup() {
     const isLoading = ref(false)
     const topicStore = useTopicStore()
-    const allCompetencies = topicStore.getCompetencies
-    const hasCompetencies = topicStore.hasCompetencies
+    const allCompetencies = computed(() => topicStore.getCompetencies)
+    const hasCompetencies = computed(() => topicStore.hasCompetencies)
     // const loadAllCompetencies = async () => {
     //   try {
     //     isLoading.value = true;

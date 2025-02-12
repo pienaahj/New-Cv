@@ -1,13 +1,15 @@
 <template>
-  <MDBCarousel
-    v-model="carousel5"
-    :items="items5"
-    :interval="9000"
-    fade
-    innerClass="rounded-5 shadow-4-strong carousel-media"
-    itemsClass="d-block m-8 p-16 w-100 items-media"
-    tag="div"
-  />
+  <div class="carousel-container">
+    <MDBCarousel
+      v-model="carousel5"
+      :items="items5"
+      :interval="9000"
+      fade
+      innerClass="rounded-5 shadow-4-strong carousel-media"
+      itemsClass="d-block m-8 p-16 items-media"
+      tag="div"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -73,12 +75,34 @@ export default defineComponent({
 
 <style lang="scss">
 .carousel {
-  height: auto; /*50vh*/
-  width: 92vh; /* width: 100%; */
+  height: 100%; /*50vh*/
+  width: 100%; /* width: 100%; */
   object-fit: cover;
   object-position: center;
   overflow: hidden;
   margin: auto;
+}
+.carousel-media {
+  height: 100%; /*50vh*/
+  width: 100%; /* width: 100%; */
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  margin: auto;
+}
+.carousel-container {
+  width: 1200x; /* Set your desired width */
+  height: 500px; /* Set your desired height */
+  overflow: hidden; /* Hide overflow content */
+}
+.carousel-container .carousel-inner,
+.carousel-container .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop images to fit */
+}
+.carousel-caption {
+  color: whitesmoke !important;
 }
 .carousel-caption-still {
   color: whitesmoke !important;
@@ -88,15 +112,15 @@ export default defineComponent({
   .carousel-media {
     display: flex;
     flex-direction: column;
-    width: 100% !important;
+    width: 80% !important;
     column-fill: auto;
   }
   .items-media {
-    width: 100% !important;
+    width: 60% !important;
   }
   .carousel {
     height: auto; /*50vh*/
-    width: 100%;
+    width: 50% !important;
     object-fit: cover;
     object-position: center;
     overflow: hidden;

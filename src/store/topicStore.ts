@@ -10,7 +10,7 @@ import type {
   // Employment,
   Employments,
   // Literacy,
-  Literacies,
+  Literacy,
   // Responsibility,
   Responsibilities,
   // Skill,
@@ -25,7 +25,7 @@ export const useTopicStore = defineStore(
     const competencies: Ref<Competencies> = ref([])
     const courses: Ref<Courses> = ref([])
     const employments: Ref<Employments> = ref([])
-    const literacies: Ref<Literacies> = ref([])
+    // const literacies: Ref<Literacies> = ref([])
     const responsibilities: Ref<Responsibilities> = ref([])
     const skills: Ref<Skills> = ref([])
     const displayActive: Ref<boolean> = ref(true)
@@ -40,7 +40,7 @@ export const useTopicStore = defineStore(
     //             coreComp:  'competency  test2',
     //         },
     // ];
-    const literaciesValues: Literacies = [
+    const literaciesValues: Literacy[] = [
       {
         id: 'id1',
         CompSkill: 'Basic Computer skills  (Desktop, Intra/Internet, Office etc.)',
@@ -93,7 +93,7 @@ export const useTopicStore = defineStore(
       return literaciesValues
     })
     const hasLiteracies = computed(() => {
-      return literacies.value
+      return literaciesValues && literaciesValues.length > 0
     })
     const getResponsibilities = computed(() => {
       return responsibilities

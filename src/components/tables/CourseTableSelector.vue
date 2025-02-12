@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <MDBTabs v-model="activeTabId4">
       <!-- Tabs navs -->
       <MDBTabNav
@@ -51,7 +51,7 @@
           class="fw-bold border shadow-6-strong rounded-6"
         >
           <img :src="courses" alt="..." class="img-thumbnail scale-icon-s mb-2 show-on-desktop" />
-          <section>Web based</section>
+          <section>Web</section>
           <section>Courses</section>
         </MDBTabItem>
       </MDBTabNav>
@@ -65,7 +65,9 @@
         </MDBTabPane>
 
         <MDBTabPane tabId="ex4-2">
-          <computer-literacy></computer-literacy>
+          <div class="d-flex">
+            <computer-literacy></computer-literacy>
+          </div>
         </MDBTabPane>
 
         <MDBTabPane tabId="ex4-3">
@@ -155,7 +157,7 @@ export default defineComponent({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 0.5rem auto;
-  max-width: 100rem;
+  max-width: 35rem;
 }
 .card-content-qualifications {
   background-color: $silver-pink;
@@ -170,7 +172,7 @@ export default defineComponent({
     width: 23rem !important;
     max-width: 23rem !important;
     /* flex-wrap: wrap; */
-    column-fill: auto;
+    // column-fill: auto;
   }
   .media-font-size {
     font-size: xx-small !important;
@@ -188,8 +190,12 @@ export default defineComponent({
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     padding: 0.5rem !important;
-
+    margin-left: 1rem auto;
     max-width: 100rem;
+    margin-left: 1rem auto;
+  }
+  .nav-pills {
+    margin-left: 0rem;
   }
 }
 </style>

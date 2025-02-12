@@ -7,7 +7,7 @@
     :interval="8000"
     innerClass="rounded-6 carousel-media"
     :controls="false"
-    itemsClass="d-block w-100"
+    itemsClass="d-block m-8 p-16 items-media"
     tag:="div"
     captionsClass="carousel-caption d-none d-md-block carousel-caption-video"
   />
@@ -65,13 +65,13 @@
 <style lang="scss" scoped>
   // @import '@/assets/config/_variables.scss';
     /* Carousel styling */
-  .carousel {
-    height: auto; /*50vh*/
-    width: 100vh; /* width: 100%; */
-    object-fit: cover;
-    object-position: center;
-    overflow: hidden;
-    margin:auto;
+    .carousel {
+  height: 100%; /*50vh*/
+  width: 100%; /* width: 100%; */
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  margin: auto;
   }
   #introCarousel,
   .carousel-inner,
@@ -106,12 +106,12 @@
     object-position: centre;
     overflow: hidden;
   }
-  /* Height for devices larger than 576px */
-  @media (min-width: 992px) {
-    #introCarousel {
-      margin-top: -58.59px;
-    }
-  }
+  // /* Height for devices larger than 576px */
+  // @media (min-width: 992px) {
+  //   #introCarousel {
+  //     margin-top: -58.59px;
+  //   }
+  // }
   @media only screen and (min-width: 375px) and (max-width: 1024px) {
   .carousel-media {
     display: flex;

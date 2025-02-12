@@ -2,7 +2,7 @@
 import { MDBContainer } from 'mdb-vue-ui-kit'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheLayout from '@/components/layout/TheLayout.vue'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import { useTopicStore } from '@/store/topicStore'
 
 export default defineComponent({
@@ -18,6 +18,19 @@ export default defineComponent({
     const topicStore = useTopicStore()
     isActive.value = topicStore.getDisplayActive
     topicStore.setDisplayActive()
+    // load the store items at creation
+    onMounted(async () => {
+      try {
+        await topicStore.loadSkills()
+        await topicStore.loadCompetencies()
+        await topicStore.loadResponsibilities()
+        await topicStore.loadEmployments()
+        await topicStore.loadCourses()
+      } catch (error) {
+        console.error(error)
+      }
+    })
+
     return {
       MDBContainer,
       isActive,
@@ -27,11 +40,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <MDBContainer fluid>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <the-header></the-header>
-    <the-layout></the-layout>
-  </MDBContainer>
+  <div class="full-width-container">
+    <MDBContainer fluid>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <the-header></the-header>
+      <the-layout></the-layout>
+    </MDBContainer>
+  </div>
 </template>
 
 <style>
@@ -57,6 +72,7 @@ export default defineComponent({
 .layout-column-right {
   padding: 0.1rem;
   flex-grow: 1;
+  overflow: auto;
 }
 .show-on-desktop {
   display: none !important;
@@ -65,12 +81,14 @@ export default defineComponent({
   .layout-media {
     display: flex;
     flex-direction: column;
-    column-fill: auto;
+    /* column-fill: auto; */
     width: 100% !important;
   }
-  .full-width-container {
+  .full-width-container-heading {
     max-width: 1024px !important;
+    overflow: auto;
   }
+
   .card-media {
     display: flex;
     flex-direction: column;
@@ -78,7 +96,7 @@ export default defineComponent({
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.26);
-    column-fill: auto;
+    /* column-fill: auto; */
   }
   .layout-column-left {
     padding: 0.1rem;
@@ -108,11 +126,11 @@ export default defineComponent({
   }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 2048px) {
+@media only screen and (min-width: 1024px) {
   .layout-media {
     display: flex;
-    flex-direction: row;
-    column-fill: auto;
+    flex-direction: column;
+    /* column-fill: auto; */
   }
   .layout-column-left {
     padding: 0.1rem;
@@ -126,16 +144,24 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: start;
+    /* align-items: self-start; */
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.26);
-    column-fill: auto;
+    /* column-fill: auto; */
     margin: 0.2rem !important;
     padding: 0.2rem !important;
   }
+  .full-width-container-heading {
+    max-width: 2048px !important;
+    height: auto;
+    margin-bottom: 1.2rem !important;
+  }
   .full-width-container {
-    max-width: 1600px !important;
-    width: 1450px;
+    max-width: 2048px !important;
+    width: 100%;
+  }
+  .wide-column {
+    width: 50%;
   }
   .my-col-small {
     flex: 0 0 25%; /* Equivalent to col-3 (3/12 columns = 25%) */
@@ -147,6 +173,9 @@ export default defineComponent({
   }
   .show-on-desktop {
     display: none !important;
+  }
+  .low-index {
+    z-index: 1;
   }
 }
 </style>

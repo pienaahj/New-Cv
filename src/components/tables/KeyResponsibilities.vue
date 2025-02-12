@@ -5,7 +5,7 @@
   </p>
   <ul class="card-content" v-else-if="!isLoading && hasResponsibilities">
     <table-item
-      v-for="responsibilitiesItem in responsibilities"
+      v-for="responsibilitiesItem in responsibilities.value"
       :key="responsibilitiesItem.id"
       :itemEntry="responsibilitiesItem.responsibility"
       class="media-font-size"
@@ -17,7 +17,7 @@
 <script lang="ts">
 import TableItem from './TableItem.vue'
 import BaseSpinner from '../ui/BaseSpinner.vue'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, ref, computed } from 'vue'
 import { useTopicStore } from '@/store/topicStore'
 export default defineComponent({
   components: {
@@ -27,8 +27,8 @@ export default defineComponent({
   setup() {
     const isLoading = ref(false)
     const topicStore = useTopicStore()
-    const hasResponsibilities = topicStore.hasResponsibilities
-    const responsibilities = topicStore.getResponsibilities
+    const hasResponsibilities = computed(() => topicStore.hasResponsibilities)
+    const responsibilities = computed(() => topicStore.getResponsibilities)
 
     onMounted(async () => {
       try {

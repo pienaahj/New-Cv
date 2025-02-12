@@ -9,16 +9,25 @@
           <MDBCardText>
             <p>
               This site was created as in VueJS (pure and with some help from MDBVue) partly an
-              exercise in single page apps, to serve as a personal demonstrative example of an
+              exercise using a single page app, to serve as a personal demonstrative example of an
               available project on the internet and as a more reactive way to visualise and extend
               my resume.
             </p>
             <p>
-              The app ulitizes vuex, vue-router and uses Firebase Realtime Database as a store, from
-              where the data is loaded at runtime.
+              This is the second version of the site, the first version was written in VueJS 2, the
+              options api and javascript, while the current one uses VueJS 3, composition api and
+              Typescript.
+            </p>
+            <p>
+              The app utilizes pinia state store, vue-router and Firebase - Realtime Database as a
+              store, from where the data is loaded at runtime.
+            </p>
+            <p>
+              The site is responsive and is best viewed on a desktop or laptop, as the carousels are
+              not visible on mobile.
             </p>
             <p>The site is hosted on Firebase.</p>
-            <p>The data was populated on Firebase by a Golang app.</p>
+            <p>The data was populated on Firebase via a Golang app.</p>
             <p>The project's code is available on my Github page with the link below</p>
             <p>
               <MDBBtn color="link" size="sm" rounded class="fw-bold" :ripple="{ color: 'dark' }">
@@ -27,12 +36,12 @@
               <a class="stretched-link" href="https://www.github.com/pienaahj"></a>
             </p>
             <p>
-              The carousel photos is from the part of the world I stay, Somerset West area -
+              The carousel photos are from the part of the world I stay, Somerset West area -
               beautiful isn't it!
             </p>
             <p>
-              The video carousel media was picked, becuase I love the sea and I find it inspiring
-              and calming. One can easily get lost staring at it.
+              The video carousel media was picked, because I love the sea and find it inspiring and
+              calming. One can easily get lost staring at it.
             </p>
           </MDBCardText>
         </MDBCardBody>

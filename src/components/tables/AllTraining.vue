@@ -12,7 +12,7 @@
           <th scope="col" id="test" v-if="!online">
             <label for="courseCategory">Category</label>
             <select
-              v-on:change="filterCourseCategories"
+              @change="filterCourseCategories"
               name="courseCategory"
               id="courseCategory"
               class="d-flex flex-wrap"
@@ -33,7 +33,8 @@
           <th scope="col" id="test2" v-else>
             <label for="onlineCourseCategory">Category</label>
             <select
-              v-on:change="filterCourseCategories"
+              @change="filterCourseCategories"
+              v-model="selectedCourseCategory"
               name="onlineCourseCategory"
               id="courseCategory"
               class="d-flex flex-wrap"
@@ -57,7 +58,8 @@
           <th scope="col" id="test3" v-if="online">
             <label for="onlineCourseCompleted">Completed</label>
             <select
-              v-on:change="filterCoursesCompleted"
+              @change="filterCoursesCompleted"
+              v-model="selectedCourseCompletion"
               name="onlineCourseCompleted"
               id="courseCompleted"
               class="d-flex"
@@ -135,7 +137,20 @@ export default defineComponent({
     const completedSelector = ref('all')
     const categorySelector = ref(false)
     const categorySelected = ref('all')
+    const categorySelection = ref('all')
     const hasCourses = ref(false)
+    const selectedCourseCompletion = ref('all') // Default value
+    const selectedCourseCategory = ref('all') // Default value
+
+    // Function to reset or update the selector programmatically
+    const resetCompletionFilter = () => {
+      selectedCourseCompletion.value = 'all' // This will update the UI
+    }
+
+    // Function to reset or update the selector programmatically
+    const resetCategoryFilter = () => {
+      selectedCourseCategory.value = 'all' // This will update the UI
+    }
 
     const filteredCourses = () => {
       const allCourses = topicStore.getFormal
@@ -156,74 +171,104 @@ export default defineComponent({
       let newCourses: Course[] = []
       // ? categoryCourses.value // if a category was selected
       // : firstFilteredCourses.value // if no course category selector, remember those courses - all courses
-      let completedSelection = event
+      // set the completed selector value by capturing the event
+      completedSelector.value = event
         ? (event.target as HTMLSelectElement).value
         : completedSelector.value
+      // set the selection made
+      selectedCourseCompletion.value = completedSelector.value // set the completed selector value
+      // create and store the selection made
+      categorySelected.value = completedSelector.value
       // check if there was a selection made
+
+      // test if the completed selector is present
+      console.log('completed selection was made: ', completedSelector.value)
 
       if (categoryCourses.value) {
         // if a category was selected
-        newCourses = categoryCourses.value // if a category was selected
+        newCourses = categoryCourses.value // find the courses in the category
       } else {
-        newCourses = firstFilteredCourses.value // if no course category selector, remember those courses - all courses
+        newCourses = firstFilteredCourses.value // if no course category selector, set to all courses
       }
-      // test if the completed selector is present
-      console.log('completed selection: ', completedSelector.value)
-      if (event == undefined) {
-        // if this was a change completed called from the category selector
-        completedSelection = completedSelector.value // set the completed selection to what was stored
-        console.log('completed selection: ', completedSelection)
+
+      if (event === undefined) {
+        // if this was a change completed called from the category selector remember it
+        categorySelected.value = categorySelected.value // set the completed selection to what was stored
+        console.log('completed selection incoming without event: ', completedSelector.value)
+      } else {
+        // a selection was made
+        console.log('completed selection incoming with event: ', completedSelector.value)
+        categorySelected.value = (event.target as HTMLSelectElement).value // save it
       }
-      if (completedSelection === 'all' && completedSelector.value === 'all') {
-        // in all completed courses cases
+      if (categorySelected.value === 'all' && completedSelector.value === 'all') {
+        // reset both the category and completed selector
+        // resetCompletionFilter()
+        // resetCategoryFilter()
         // in all completed course cases
         courses.value = newCourses // display all the courses in the category filter
-      } else if (completedSelection === 'all' && completedSelector.value != 'all') {
+      } else if (categorySelected.value === 'all' && completedSelector.value != 'all') {
         // if all was selected and was a selector before
         courses.value = newCourses // display all the courses in the category filter
       } else if (completedSelector.value != 'all') {
         // if there was a previous completed selector, filter on it
-        courses.value = completedCourses.value.filter(
-          (e) => e.completed === completedSelector.value,
-        )
+        courses.value = newCourses.filter((e) => e.completed === completedSelector.value)
       } else {
-        courses.value = newCourses.filter((e) => e.completed === completedSelection)
+        courses.value = newCourses.filter((e) => e.completed === completedSelector.value)
       }
-      completedSelector.value = completedSelection // store the current selector
+      // set the completed selector value
+      selectedCourseCompletion.value = completedSelector.value // set the completed selector value
+      completedSelector.value = completedSelector.value // store the current selector
       completedCourses.value = courses.value // remember the completed courses set
     }
 
     const filterCourseCategories = (event: Event) => {
       const target = event.target as HTMLSelectElement
-      const category = target.value
+      categorySelection.value = target.value // set the category selection
+      console.log('category selection was made: ', categorySelection.value)
       let courseList: Course[] = []
+      // if a category was selected
+      if (categorySelection.value) {
+        courseList = completedCourses.value.filter(
+          (e) => e.courseCategory === categorySelection.value,
+        )
+        // set the category selector value
+        selectedCourseCategory.value = categorySelection.value // set the category selector value
+      } else {
+        courseList = firstFilteredCourses.value
+      }
       // test if the completed selector is present
-      if (completedSelector.value === 'all') {
-        if (categorySelected.value != category) {
+      if (completedSelector.value != 'all') {
+        if (categorySelected.value != categorySelection.value) {
           // if different category selected - reset all
           courseList = firstFilteredCourses.value // reset to all courses
           completedSelector.value = 'all' // reset to all courses
           if ((document.querySelector('#courseCompleted') as HTMLSelectElement) !== null) {
             // reset completed selector to all
+            filterCoursesCompleted()
           }
-          filterCoursesCompleted()
         } else {
           courseList = completedCourses.value
         }
       } else {
         courseList = firstFilteredCourses.value
       }
-      if (category === 'all') {
-        // if seleting all courses in category reset the completed selector
+      // if selecting all courses in category reset the completed selector
+      if (categorySelection.value === 'all') {
+        resetCompletionFilter()
+        resetCategoryFilter()
         courses.value = courseList
         categorySelector.value = false
-        completedSelector.value = 'all'
-        // filterCoursesCompleted()
       } else {
-        courses.value = courseList.filter((course) => course.courseCategory === category)
-        completedSelector.value = category
-        completedCourses.value = courses.value
+        courses.value = courseList.filter(
+          (course) => course.courseCategory === categorySelection.value,
+        )
+        console.log('courses in filter: ', courses.value)
+        categorySelector.value = true
+        categorySelected.value = categorySelection.value
       }
+      // remember the category courses set
+      categoryCourses.value = courses.value
+      filterCoursesCompleted()
     }
 
     // on mounted load the courses
@@ -256,6 +301,8 @@ export default defineComponent({
       allCourses,
       filterCoursesCompleted,
       filterCourseCategories,
+      selectedCourseCompletion,
+      selectedCourseCategory,
     }
   },
 })

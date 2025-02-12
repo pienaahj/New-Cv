@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import TableItem from './TableItem.vue'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import { useTopicStore } from '@/store/topicStore'
 import BaseSpinner from '@/components/ui/BaseSpinner.vue'
 export default defineComponent({
@@ -30,17 +30,11 @@ export default defineComponent({
     const isLoading = ref(false)
     // get the literacy from state store
     const topicStore = useTopicStore()
-    const compSkills = topicStore.getLiteracies
-    const hasLiteracy = topicStore.hasLiteracies
-    onMounted(async () => {
-      try {
-        isLoading.value = true
-        await topicStore.literaciesValues
-      } catch (error) {
-        console.error(error)
-      }
-      isLoading.value = false
-    })
+    const compSkills = computed(() => topicStore.getLiteracies)
+    const hasLiteracy = computed(() => topicStore.hasLiteracies)
+    console.log('compSkills', compSkills.value)
+    console.log('hasLiteracy', hasLiteracy.value)
+
     return {
       compSkills,
       hasLiteracy,

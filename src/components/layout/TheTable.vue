@@ -21,6 +21,7 @@
   .table-layout-media {
     display: flex;
     flex-direction: column;
+    overflow: auto;
   }
 }
 </style>

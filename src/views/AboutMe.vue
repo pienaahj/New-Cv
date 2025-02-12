@@ -95,7 +95,7 @@ export default defineComponent({
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
-  margin: 0.5rem auto;
+  // margin: 0.5rem auto;
   max-width: 90rem;
 }
 .card-content {
@@ -135,6 +135,13 @@ export default defineComponent({
     width: 100% !important;
     column-fill: auto;
     max-width: fit-content;
+  }
+  .page-content {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    // margin: 0.5rem auto;
+    max-width: 90rem;
   }
   .table-content tr {
     background-color: whitesmoke;

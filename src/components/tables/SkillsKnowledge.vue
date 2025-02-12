@@ -5,7 +5,7 @@
   </p>
   <ul class="card-content" v-else-if="!isLoading && hasSkills">
     <table-item
-      v-for="skillItem in skills"
+      v-for="skillItem in skills.value"
       :key="skillItem.id"
       :itemEntry="skillItem.skill"
       class="media-font-size"
@@ -17,8 +17,9 @@
 <script lang="ts">
 import TableItem from './TableItem.vue'
 import BaseSpinner from '../ui/BaseSpinner.vue'
-import { defineComponent, onMounted, ref } from 'vue'
+import { defineComponent, onMounted, ref, computed } from 'vue'
 import { useTopicStore } from '@/store/topicStore'
+// import type { Skills } from '@/model/types';
 
 export default defineComponent({
   components: {
@@ -28,9 +29,8 @@ export default defineComponent({
   setup() {
     const isLoading = ref(false)
     const topicStore = useTopicStore()
-    const hasSkills = ref(false)
-    hasSkills.value = topicStore.hasSkills
-    const skills = topicStore.getSkills
+    const hasSkills = computed(() => topicStore.hasSkills)
+    const skills = computed(() => topicStore.getSkills)
 
     // Load the skill at creation
     onMounted(async () => {
@@ -42,10 +42,12 @@ export default defineComponent({
       }
       isLoading.value = false
     })
+
     return {
       isLoading,
-      skills,
+      topicStore,
       hasSkills,
+      skills,
     }
   },
 })

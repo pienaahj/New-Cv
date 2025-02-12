@@ -72,7 +72,7 @@
           class="fw-bold border shadow-6-strong rounded-6"
         >
           <img
-            :src="responnsibilities"
+            :src="responsibilities"
             alt="..."
             class="img-thumbnail scale-icon-s mb-2 show-on-desktop"
           />
@@ -80,7 +80,6 @@
           <section>Responsibilities</section>
         </MDBTabItem>
       </MDBTabNav>
-      <!-- Tabs navs -->
       <!-- Tabs content -->
       <MDBTabContent>
         <MDBTabPane tabId="ex4-1">
@@ -93,7 +92,6 @@
 
         <MDBTabPane tabId="ex4-2">
           <div class="d-flex">
-            <!-- <div class="p-3 fw-40 justify-content-end card-content-career-summary align-items-end"></div> -->
             <skills-knowledge></skills-knowledge>
           </div>
         </MDBTabPane>
@@ -145,7 +143,7 @@ import careerSummary from '@/assets/icons/career_summary_512.png'
 import skills from '@/assets/icons/skills_512.png'
 import technical from '@/assets/icons/technical.png'
 import competencies from '@/assets/icons/competency.png'
-import responnsibilities from '@/assets/icons/responsibility_512.png'
+import responsibilities from '@/assets/icons/responsibility_512.png'
 export default defineComponent({
   components: {
     MDBTabs,
@@ -168,7 +166,7 @@ export default defineComponent({
       skills,
       technical,
       competencies,
-      responnsibilities,
+      responsibilities,
     }
   },
 })
