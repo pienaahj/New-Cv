@@ -56,7 +56,7 @@ export default defineComponent({
         src: picture5,
         alt: '...',
         label: 'Development',
-        caption: 'Golang enthusiast.',
+        caption: 'Golang and Typescript full stack.',
       },
     ]
     const carousel5 = ref(0)
@@ -92,7 +92,7 @@ export default defineComponent({
 }
 .carousel-container {
   width: 1200x; /* Set your desired width */
-  height: 500px; /* Set your desired height */
+  height: 560px; /* Set your desired height */
   overflow: hidden; /* Hide overflow content */
 }
 .carousel-container .carousel-inner,

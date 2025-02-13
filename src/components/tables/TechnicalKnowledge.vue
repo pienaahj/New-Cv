@@ -1,5 +1,5 @@
 <template>
-  <MDBCard shadow="5" class="rounded-8 mx-1 my-4">
+  <MDBCard shadow="5" class="rounded-8 mx-1 my-0">
     <MDBCardBody bg="warning" class="card-content text-start fs-5">
       <MDBCardTitle>Management of technology in various parts of telecommunication</MDBCardTitle>
       <MDBCardText class="media-font-size">
@@ -75,6 +75,7 @@ export default defineComponent({
 .card-content {
   background-color: white-smoke;
   border-radius: 12px;
+  padding: 1rem;
   margin: 0.5rem auto;
   max-width: 40rem;
 }

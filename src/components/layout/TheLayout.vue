@@ -51,4 +51,7 @@ export default defineComponent({
 .active-display-class {
   display: none !important;
 }
+.no-background {
+  background-color: aliceblue;
+}
 </style>

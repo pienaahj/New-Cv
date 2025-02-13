@@ -1,5 +1,5 @@
 <template>
-  <MDBCard shadow="5" class="rounded-8 mx-1 my-4">
+  <MDBCard shadow="5" class="rounded-8 mx-1 my-2">
     <MDBCardBody bg="warning" class="card-content text-start fs-5">
       <MDBCardTitle>Career summary</MDBCardTitle>
       <MDBCardText class="media-font-size">

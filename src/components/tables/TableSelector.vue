@@ -5,19 +5,21 @@
       <MDBTabNav
         pills
         style="background-color: whitesmoke"
-        tabsClasses="mb-3 text-center opacity-100 bg-gradient rounded-6 tabnav-media"
+        tabsClasses="mb-3 text-center icon-media"
+        justify
       >
         <MDBTabItem
           :wrap="false"
           tabId="ex4-1"
           href="ex4-1"
+          tag="button"
           class="selector_style fw-bold border shadow-6-strong rounded-6"
         >
           <!-- <i class="fas fa-chart-pie fa-fw me-2"></i> -->
           <img
             :src="careerSummary"
             alt="..."
-            class="img-thumbnail scale-icon-s mb-4 show-on-desktop"
+            class="img-thumbnail scale-icon-s mb-3 show-on-desktop"
           />
           <!-- <i class="far fa-address-card"></i> -->
           <section>Career</section>
@@ -84,7 +86,7 @@
       <MDBTabContent>
         <MDBTabPane tabId="ex4-1">
           <div class="d-flex">
-            <div class="p-3 fw-40 justify-content-end card-content-career-summary align-items-end">
+            <div class="justify-content-end card-content-career-summary align-items-end">
               <career-summary></career-summary>
             </div>
           </div>
@@ -98,8 +100,10 @@
 
         <MDBTabPane tabId="ex4-3">
           <div class="d-flex">
-            <div class="p-2 flex-grow-1"></div>
-            <div class="p-3 fw-40 w-70 justify-content-end card-content-technical align-items-end">
+            <div class="flex-grow-1"></div>
+            <div
+              class="p-2 pt-3 pb-3 fw-40 w-70 justify-content-end card-content-technical align-items-end"
+            >
               <technical-knowledge></technical-knowledge>
             </div>
           </div>
@@ -173,10 +177,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-// @import '@/assets/config/_variables.scss';
-
 .scale-icon {
-  width: 18%;
+  width: 40%;
 }
 .scale-icon-m {
   width: 30%;
@@ -185,13 +187,13 @@ export default defineComponent({
   width: 20%;
 }
 .scale-icon-s {
-  width: 80%;
+  width: 50%;
 }
 .scale-icon-xs {
-  width: 100%;
+  width: 75%;
 }
 .icon-margin-bottom {
-  margin-bottom: 23.5%;
+  margin-bottom: 6%;
 }
 .no-background {
   background-color: aliceblue;
@@ -208,9 +210,34 @@ export default defineComponent({
   background-color: $silver-pink;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 0.5rem auto;
   max-width: 45rem;
+}
+.tabnav-media {
+  display: flex;
+  flex-direction: column;
+
+  background-color: $silver-pink;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 0.5rem auto;
+  max-width: 5rem;
+  padding: 0.5rem;
+}
+.change-link-color {
+  color: $charcoal !important;
+  :active {
+    color: $desert-sand !important;
+  }
+}
+icon-media {
+  display: flex;
+  flex-direction: column;
+  width: 23rem !important;
+  max-width: 23rem !important;
+  flex-wrap: wrap;
+  column-fill: auto;
 }
 @media only screen and (min-width: 375px) and (max-width: 1023px) {
   .icon-media {
@@ -236,17 +263,6 @@ export default defineComponent({
   .nav-pills {
     margin-left: 0rem;
   }
-}
-</style>
-<style lang="scss">
-// @import '@/assets/config/_variables.scss';
-.change-link-color {
-  color: $charcoal !important;
-  :active {
-    color: $desert-sand !important;
-  }
-}
-@media only screen and (min-width: 375px) and (max-width: 1024px) {
   .tabnav-media {
     background-color: $silver-pink;
     border-radius: 12px;

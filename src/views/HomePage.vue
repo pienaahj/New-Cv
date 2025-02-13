@@ -4,8 +4,8 @@
       <h2>Career, Skills, Technical Knowledge, Core Competencies & Key Responsibilities</h2>
     </base-card>
     <the-carousel class="show-on-desktop-only"></the-carousel>
-    <base-card :fromHome="true" class="w-100 table-layout opacity-75">
-      <base-card :fromHome="true" class="table-layout opacity-75">
+    <base-card :fromHome="true" class="w-100 table-layout-outer">
+      <base-card :fromHome="true" class="table-layout">
         <the-table>
           <table-selector></table-selector>
         </the-table>
@@ -42,28 +42,37 @@ export default defineComponent({
 <style lang="scss" scoped>
 // @import '@/assets/config/_variables.scss';
 .table-layout {
-  background-color: $bd-blue;
+  background-color: warning;
   // background-color: $dark-sky-blue;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding-top: 0.5rem;
+  margin: 1rem auto;
+  max-width: 100rem;
+}
+.table-layout-outer {
+  // background-color: ;
+  background-color: $dark-sky-blue;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 4rem;
-  margin: 2rem auto;
+  padding-top: 0.5rem;
+  margin: 1rem auto;
   max-width: 100rem;
 }
 .page-content {
   display: flex;
   flex-direction: column;
   width: 100% !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 1rem;
+  // border-radius: 12px;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding-top: 0.5rem;
   margin: 0.5rem auto;
   max-width: 90rem;
 }
 .card-content {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 1rem;
+  padding-top: 0.5rem;
   margin: 0.5rem auto;
   max-width: 100rem;
 }
@@ -82,8 +91,17 @@ export default defineComponent({
     display: none !important;
   }
   .table-layout {
-    background-color: $bd-blue;
+    background-color: warning;
     // background-color: $dark-sky-blue;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 4rem;
+    margin: 2rem auto;
+    max-width: 100rem;
+  }
+  .table-layout-outer {
+    // background-color: warning;
+    background-color: $dark-sky-blue;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     padding: 4rem;

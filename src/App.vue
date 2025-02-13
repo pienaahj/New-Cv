@@ -49,7 +49,7 @@ export default defineComponent({
   </div>
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family:
     Roboto,
@@ -74,9 +74,9 @@ export default defineComponent({
   flex-grow: 1;
   overflow: auto;
 }
-.show-on-desktop {
-  display: none !important;
-}
+// .show-on-desktop {
+//   display: none !important;
+// }
 @media only screen and (min-width: 375px) and (max-width: 1023px) {
   .layout-media {
     display: flex;
@@ -138,6 +138,7 @@ export default defineComponent({
   }
   .layout-column-right {
     padding: 0.1rem;
+    max-width: 70%;
     flex-grow: 1;
   }
   .card-media {
@@ -145,8 +146,8 @@ export default defineComponent({
     flex-direction: column;
     justify-content: start;
     /* align-items: self-start; */
-    border-radius: 5px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.26);
+    /* border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.26); */
     /* column-fill: auto; */
     margin: 0.2rem !important;
     padding: 0.2rem !important;
@@ -171,9 +172,9 @@ export default defineComponent({
     flex: 0 0 75%; /* Equivalent to col-3 (3/12 columns = 25%) */
     max-width: 75%;
   }
-  .show-on-desktop {
-    display: none !important;
-  }
+  // .show-on-desktop {
+  //   display: none !important;
+  // }
   .low-index {
     z-index: 1;
   }

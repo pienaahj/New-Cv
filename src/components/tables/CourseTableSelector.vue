@@ -1,19 +1,15 @@
 <template>
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div>
     <MDBTabs v-model="activeTabId4">
       <!-- Tabs navs -->
-      <MDBTabNav
-        pills
-        style="background-color: whitesmoke"
-        tabsClasses="mb-3 ml-auto text-center opacity-100 bg-gradient rounded-6 tabnav-media"
-      >
+      <MDBTabNav pills style="background-color: whitesmoke" tabsClasses="mb-3 text-center" justify>
         <MDBTabItem
           :wrap="false"
           tabId="ex4-1"
           href="ex4-1"
           class="selector_style fw-bold border shadow-6-strong rounded-6"
         >
-          <img :src="training" alt="..." class="img-thumbnail scale-icon-s mb-3 show-on-desktop" />
+          <img :src="training" alt="..." class="img-thumbnail scale-icon-s mb-2 show-on-desktop" />
           <section>Qualifications</section>
           <section>School & tertiary</section>
         </MDBTabItem>
@@ -50,7 +46,7 @@
           href="ex4-4"
           class="fw-bold border shadow-6-strong rounded-6"
         >
-          <img :src="courses" alt="..." class="img-thumbnail scale-icon-s mb-2 show-on-desktop" />
+          <img :src="courses" alt="..." class="img-thumbnail scale-icon-s mb-1 show-on-desktop" />
           <section>Web</section>
           <section>Courses</section>
         </MDBTabItem>
@@ -72,7 +68,7 @@
 
         <MDBTabPane tabId="ex4-3">
           <div class="d-flex">
-            <div class="p-3 fw-40 w-100 justify-content-end card-content-technical align-items-end">
+            <div class="p-3 fw-80 w-100 justify-content-end card-content-technical align-items-end">
               <all-training :online="false"></all-training>
             </div>
           </div>
@@ -157,7 +153,7 @@ export default defineComponent({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 0.5rem auto;
-  max-width: 35rem;
+  max-width: 80rem;
 }
 .card-content-qualifications {
   background-color: $silver-pink;

@@ -9,7 +9,7 @@
         <div class="mask overlay" style="background-color: rgba(57, 192, 237, 0.2)"></div>
       </a>
     </div>
-    <base-card class="table-layout opacity-75">
+    <base-card class="table-layout">
       <employment-table-selector></employment-table-selector>
     </base-card>
   </div>

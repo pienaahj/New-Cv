@@ -3,11 +3,9 @@
     <base-card class="card-content">
       <h2>Education, Vocational Qualifications & Training</h2>
     </base-card>
-    <div>
-      <video-carousel class="d-flex show-on-desktop-only"></video-carousel>
-    </div>
-    <base-card :fromHome="true" class="w-100 table-layout opacity-75">
-      <base-card :fromHome="true" class="table-layout opacity-75">
+    <video-carousel class="d-flex show-on-desktop-only"></video-carousel>
+    <base-card :fromHome="true" class="w-100 table-layout-outer">
+      <base-card :fromHome="true" class="table-layout">
         <the-table>
           <course-table-selector></course-table-selector>
         </the-table>
@@ -52,16 +50,26 @@ export default defineComponent({
 .card-content {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 0.5rem auto;
   max-width: 100rem;
 }
 .table-layout {
-  background-color: $bd-blue;
+  background-color: warning;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
   margin: 0.5rem auto;
+  max-width: 100rem;
+}
+.table-layout-outer {
+  // background-color: warning;
+  // // background-color: ;
+  background-color: $dark-sky-blue;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding-top: 0.5rem;
+  margin: 1rem auto;
   max-width: 100rem;
 }
 @media only screen and (min-width: 375px) and (max-width: 1023px) {
@@ -77,12 +85,22 @@ export default defineComponent({
     display: none !important;
   }
   .table-layout {
-    background-color: $bd-blue;
+    background-color: warning;
+    // background-color: $bd-blue;
     // background-color: $dark-sky-blue;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     padding: 4rem;
     margin: 2rem auto;
+    max-width: 100rem;
+  }
+  .table-layout-outer {
+    background-color: $dark-sky-blue;
+    // background-color: warning;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding-top: 0.5rem;
+    margin: 1rem auto;
     max-width: 100rem;
   }
 }

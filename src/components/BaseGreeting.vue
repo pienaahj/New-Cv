@@ -26,7 +26,11 @@
         <p></p>
       </MDBCardTitle>
       <MDBCollapse id="collapsibleContent1" v-model="collapse1">
-        <MDBCardText collapseId="collapseOne" class="text-wrap text-start">
+        <MDBCardText
+          collapseId="collapseOne"
+          class="d-flex text-wrap text-start"
+          style="width: 20rem"
+        >
           <p>
             Electronic Engineer with specialisation in Telecommunications Planning and Geographic
             Information Systems. With over two and a half decades of technical management and
@@ -52,8 +56,8 @@
           <p>I like to enable others to achieve.</p>
           <p>I am ever curious.</p>
         </MDBCardText>
-        <MDBCardTitle class="col-small text-center">
-          <img :src="kindSymbol" class="img-fluid" alt="..." />
+        <MDBCardTitle class="col-small text-center mb-1" style="width: 22rem">
+          <img :src="kindSymbol" class="img-fluid mb-2" alt="..." />
         </MDBCardTitle>
       </MDBCollapse>
     </MDBCardBody>
