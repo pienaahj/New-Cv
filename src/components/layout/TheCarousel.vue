@@ -91,8 +91,8 @@ export default defineComponent({
   margin: auto;
 }
 .carousel-container {
-  width: 1200x; /* Set your desired width */
-  height: 560px; /* Set your desired height */
+  width: 1auto; /* Set your desired width */
+  height: auto; /* Set your desired height */
   overflow: hidden; /* Hide overflow content */
 }
 .carousel-container .carousel-inner,
@@ -108,7 +108,7 @@ export default defineComponent({
   color: whitesmoke !important;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+@media only screen and (min-width: 375px) and (max-width: 1140px) {
   .carousel-media {
     display: flex;
     flex-direction: column;

@@ -4,12 +4,12 @@
     :items="items6"
     :indicators="false"
     fade
-    :interval="8000"
+    :interval="9000"
     innerClass="rounded-6 carousel-media"
     :controls="false"
-    itemsClass="d-block m-8 p-16 items-media"
+    itemsClass="d-block m-8 p-17 items-media "
     tag:="div"
-    captionsClass="carousel-caption d-none d-md-block carousel-caption-video"
+    captionsClass="carousel-caption d-none d-md-block carousel-caption-video text-black"
   />
 </template>
 
@@ -18,7 +18,7 @@
   import { MDBCarousel } from "mdb-vue-ui-kit";
   import { defineComponent } from "vue";
   // import images
-  import video1 from '@/assets/images/mixkit-small-boat-in-a-great-heavenly-place-4997.mp4';
+  import video1 from '@/assets/images/mixkit-small-boat-scaled 720p .mp4';
   import video2 from '@/assets/images/Beach - 3998.mp4';
   import video3 from '@/assets/images/Nature boat see- 111309.mp4';
   export default defineComponent({
@@ -66,8 +66,8 @@
   // @import '@/assets/config/_variables.scss';
     /* Carousel styling */
     .carousel {
-  height: 100%; /*50vh*/
-  width: 100%; /* width: 100%; */
+  height: auto; /*50vh*/
+  width: auto; /* width: 100%; */
   object-fit: cover;
   object-position: center;
   overflow: hidden;
@@ -112,7 +112,7 @@
   //     margin-top: -58.59px;
   //   }
   // }
-  @media only screen and (min-width: 375px) and (max-width: 1024px) {
+  @media only screen and (min-width: 375px) and (max-width: 1140px) {
   .carousel-media {
     display: flex;
     flex-direction:column;

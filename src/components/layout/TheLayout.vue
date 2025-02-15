@@ -1,28 +1,28 @@
 <template>
-  <div class="d-flex flex-row justify-content-center align-items-center">
-    <!-- <MDBContainer> -->
+  <!-- <div class="d-flex flex-row justify-content-center align-items-center"> -->
+  <MDBContainer fluid>
     <MDBRow>
-      <MDBCol className="my-col-small my-col-nocolumn">
+      <MDBCol xl="3" cols="12" class="d-flex align-items-start justify-items-center">
         <!-- lefthand column -->
-        <div class="m-0 p-0 low-index">
+        <div class="m-0 p-0">
           <base-card :class="{ 'active-display-class': noDisplay }">
             <base-greeting></base-greeting>
           </base-card>
         </div>
       </MDBCol>
-      <MDBCol className="my-col-wide my-col-nocolumn wide-column">
+      <MDBCol xl="9" cols="12">
         <!-- righthand column -->
         <div class="layout-media">
           <router-view></router-view>
         </div>
       </MDBCol>
     </MDBRow>
-    <!-- </MDBContainer> -->
-  </div>
+  </MDBContainer>
+  <!-- </div> -->
 </template>
 
 <script lang="ts">
-import { MDBCol, MDBRow } from 'mdb-vue-ui-kit'
+import { MDBCol, MDBRow, MDBContainer } from 'mdb-vue-ui-kit'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import BaseGreeting from '@/components/BaseGreeting.vue'
 import { defineComponent } from 'vue'
@@ -34,7 +34,7 @@ export default defineComponent({
     BaseGreeting,
     MDBCol,
     MDBRow,
-    // MDBContainer,
+    MDBContainer,
   },
   setup() {
     const topicStore = useTopicStore()
@@ -47,6 +47,7 @@ export default defineComponent({
   },
 })
 </script>
+
 <style lang="scss" scoped>
 .active-display-class {
   display: none !important;

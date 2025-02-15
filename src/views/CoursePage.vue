@@ -72,14 +72,19 @@ export default defineComponent({
   margin: 1rem auto;
   max-width: 100rem;
 }
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+@media only screen and (max-width: 1200px) {
+  .show-on-desktop-only {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 1140px) {
   .card-media-home {
     display: flex;
     flex-direction: column;
     width: 100% !important;
     column-fill: auto;
     justify-content: center;
-    max-width: 1023px;
+    max-width: 1140px;
   }
   .show-on-desktop-only {
     display: none !important;
@@ -90,8 +95,8 @@ export default defineComponent({
     // background-color: $dark-sky-blue;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    padding: 4rem;
-    margin: 2rem auto;
+    padding: 2rem;
+    margin: 1rem auto;
     max-width: 100rem;
   }
   .table-layout-outer {

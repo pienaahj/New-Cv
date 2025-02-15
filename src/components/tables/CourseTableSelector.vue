@@ -2,12 +2,12 @@
   <div>
     <MDBTabs v-model="activeTabId4">
       <!-- Tabs navs -->
-      <MDBTabNav pills style="background-color: whitesmoke" tabsClasses="mb-3 text-center" justify>
+      <MDBTabNav pills style="background-color: whitesmoke" tabsClasses="nav-fit" justify>
         <MDBTabItem
           :wrap="false"
           tabId="ex4-1"
           href="ex4-1"
-          class="selector_style fw-bold border shadow-6-strong rounded-6"
+          class="selector_style fw-bold border shadow-6-strong rounded-6 nav-fit"
         >
           <img :src="training" alt="..." class="img-thumbnail scale-icon-s mb-2 show-on-desktop" />
           <section>Qualifications</section>
@@ -127,8 +127,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-// @import '@/assets/config/_variables.scss';
-
 .scale-icon {
   width: 18%;
 }
@@ -161,7 +159,7 @@ export default defineComponent({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
 }
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+@media only screen and (max-width: 1140px) {
   .icon-media {
     display: flex;
     flex-direction: column;
@@ -191,19 +189,23 @@ export default defineComponent({
     margin-left: 1rem auto;
   }
   .nav-pills {
-    margin-left: 0rem;
+    margin: 0.5rem auto;
+    padding: 0%;
+  }
+  .nav-fit {
+    margin: 0.5rem auto;
+    margin-right: 1rem;
+    margin-left: 0.1rem;
+    padding: 0%;
+  }
+  .change-link-color {
+    color: $charcoal !important;
+    :active {
+      color: $desert-sand !important;
+    }
   }
 }
-</style>
-<style lang="scss">
-// @import '@/assets/config/_variables.scss';
-.change-link-color {
-  color: $charcoal !important;
-  :active {
-    color: $desert-sand !important;
-  }
-}
-@media only screen and (min-width: 375px) and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
   .tabnav-media {
     background-color: $silver-pink;
     border-radius: 12px;

@@ -308,11 +308,61 @@ li {
   margin: 0.5rem auto;
   max-width: 70rem;
 }
-</style>
-
-<style lang="scss">
-// @import '@/assets/config/_variables.scss';
 .accordion-body {
   padding: 0.5rem 0.5rem;
+}
+@media only screen and (max-width: 1200px) {
+  .card-content {
+    background-color: $silver-pink;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: 0.5rem auto;
+    max-width: 80rem;
+  }
+  .card-content {
+    background-color: $silver-pink;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: 0.5rem auto;
+    max-width: 80rem;
+  }
+
+  .history-ul {
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin: 0.5rem auto;
+    max-width: 40rem;
+    list-style: none;
+  }
+
+  li {
+    background-color: whitesmoke;
+    list-style: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+  }
+
+  .job-description-header {
+    color: $true-blue;
+    padding-top: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  .job-description-text {
+    background-color: whitesmoke;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: 0.5rem auto;
+    max-width: 70rem;
+  }
+  .accordion-body {
+    padding: 0.5rem 0.5rem;
+  }
 }
 </style>

@@ -16,6 +16,7 @@ export default defineConfig({
         `,
       },
     },
+    devSourcemap: true,
   },
   resolve: {
     alias: {

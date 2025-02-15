@@ -15,49 +15,50 @@
       </MDBCardTitle>
       <MDBCardTitle>
         <MDBBtn
-          class="text-center fst-italic button"
+          class="text-center fst-italic button mb-3"
           @click="collapse1 = !collapse1"
           aria-controls="collapsibleContent1"
           :aria-expanded="collapse1"
         >
+          <!-- <i class="fas fa-user-tie"></i> -->
+          <MDBIcon iconStyle="fas" icon="user" class="me-2"></MDBIcon>
           Professional Profile
         </MDBBtn>
         <img :src="downSymbol" class="img-fluid" alt="..." />
         <p></p>
       </MDBCardTitle>
       <MDBCollapse id="collapsibleContent1" v-model="collapse1">
-        <MDBCardText
-          collapseId="collapseOne"
-          class="d-flex text-wrap text-start"
-          style="width: 20rem"
-        >
-          <p>
-            Electronic Engineer with specialisation in Telecommunications Planning and Geographic
-            Information Systems. With over two and a half decades of technical management and
-            coordination experience, I have honed my skills in planning and integrating access
-            network technologies and Geographic Information Systems. My expertise encompasses
-            contractor and staff management, enabling me to effectively drive company goals and
-            implement strategic objectives.
-          </p>
-          <p>
-            My unwavering dedication to innovation has led me to transition from my previous role to
-            software development, particularly in distributed systems and microservices. My ability
-            to think creatively, coupled with my positive attitude and respect for others, has
-            consistently driven me to excel in this field.
-          </p>
-          <p>
-            My personal motivation stems from my belief that every challenge presents an opportunity
-            for solution-finding and my deep passion for solving complex problems. I thrive on
-            challenges and enjoy empowering others to achieve their goals. My insatiable curiosity
-            drives me to continuously seek new knowledge and opportunities for growth.
-          </p>
-          <p></p>
-          <p>I like a challenge.</p>
-          <p>I like to enable others to achieve.</p>
-          <p>I am ever curious.</p>
+        <MDBCardText collapseId="collapseOne" class="d-flex text-wrap text-center text-width">
+          <div class="text-width">
+            <p class="m-2 p-2">
+              Electronic Engineer with specialisation in Telecommunications Planning and Geographic
+              Information Systems. With over two and a half decades of technical management and
+              coordination experience, I have honed my skills in planning and integrating access
+              network technologies and Geographic Information Systems. My expertise encompasses
+              contractor and staff management, enabling me to effectively drive company goals and
+              implement strategic objectives.
+            </p>
+
+            <p class="m-2 p-2">
+              My unwavering dedication to innovation has led me to transition from my previous role
+              to software development, particularly in distributed systems and microservices. My
+              ability to think creatively, coupled with my positive attitude and respect for others,
+              has consistently driven me to excel in this field.
+            </p>
+            <p class="m-2 p-2">
+              My personal motivation stems from my belief that every challenge presents an
+              opportunity for solution-finding and my deep passion for solving complex problems. I
+              thrive on challenges and enjoy empowering others to achieve their goals. My insatiable
+              curiosity drives me to continuously seek new knowledge and opportunities for growth.
+            </p>
+
+            <p>I like a challenge. I like to enable others to achieve.</p>
+            <p>I am ever curious.</p>
+          </div>
         </MDBCardText>
-        <MDBCardTitle class="col-small text-center mb-1" style="width: 22rem">
-          <img :src="kindSymbol" class="img-fluid mb-2" alt="..." />
+
+        <MDBCardTitle>
+          <img :src="kindSymbol" class="img-fluid mb-8" alt="..." />
         </MDBCardTitle>
       </MDBCollapse>
     </MDBCardBody>
@@ -74,11 +75,12 @@ import {
   mdbRipple,
   MDBBtn,
   MDBCollapse,
+  MDBIcon,
 } from 'mdb-vue-ui-kit'
 import { defineComponent, ref } from 'vue'
 // import images
 import photo from '../assets/images/hendrik-grey-background.webp'
-import downSymbol from '../assets/symbols/kindpng_3790542.png'
+import downSymbol from '../assets/symbols/kindpng_3790542 down.png'
 import kindSymbol from '../assets/symbols/kindpng_3790542.png'
 export default defineComponent({
   components: {
@@ -89,6 +91,7 @@ export default defineComponent({
     MDBCardImg,
     MDBBtn,
     MDBCollapse,
+    MDBIcon,
   },
   directives: {
     mdbRipple,
@@ -107,6 +110,21 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.text-width {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // width: fit-content;
+  // max-width: fit-content;
+  margin: 0.4rem auto;
+  justify-content: center;
+
+  // margin-left: 0.4rem;
+  // margin-right: 0.4rem;
+  // align-content: center;
+  // text-align: center;
+}
 .header {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -138,23 +156,46 @@ p {
   align-content: center;
   text-align: center;
 }
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+// .fas.fa-bars {
+//   font-family: 'Font Awesome 5 Free' !important;
+//   font-weight: 900 !important;
+//   visibility: visible !important;
+//   color: black !important;
+//   display: inline-block !important;
+// }
+@media only screen and (max-width: 1140px) {
   p {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    width: 100%;
+    width: auto;
     margin: auto;
+    text-align: center;
+  }
+  .text-width {
+    width: fit-content;
+    max-width: fit-content;
+    margin: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    align-content: center;
     text-align: center;
   }
   .col-small {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: auto;
     align-items: end;
     max-width: 100rem;
   }
+  // .fas.fa-bars {
+  //   font-family: 'Font Awesome 5 Free' !important;
+  //   font-weight: 900 !important;
+  //   visibility: visible !important;
+  //   color: black !important;
+  //   display: inline-block !important;
+  // }
 }
 </style>

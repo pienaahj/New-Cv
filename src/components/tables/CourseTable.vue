@@ -37,7 +37,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/config/_variables.scss';
+// @import '@/assets/config/_variables.scss';
 .card-content {
   background-color: $silver-pink;
   border-radius: 12px;

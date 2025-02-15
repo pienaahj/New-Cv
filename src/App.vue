@@ -77,7 +77,7 @@ export default defineComponent({
 // .show-on-desktop {
 //   display: none !important;
 // }
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+@media only screen and (min-width: 375px) and (max-width: 1140px) {
   .layout-media {
     display: flex;
     flex-direction: column;
@@ -106,6 +106,9 @@ export default defineComponent({
     padding: 0.1rem;
     width: 100%;
   }
+  .no-show-on-desktop {
+    display: none !important;
+  }
   .show-on-desktop {
     display: none !important;
   }
@@ -126,11 +129,11 @@ export default defineComponent({
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1141px) {
   .layout-media {
     display: flex;
     flex-direction: column;
-    /* column-fill: auto; */
+    flex: 1 1 auto;
   }
   .layout-column-left {
     padding: 0.1rem;
@@ -153,7 +156,7 @@ export default defineComponent({
     padding: 0.2rem !important;
   }
   .full-width-container-heading {
-    max-width: 2048px !important;
+    max-width: 1920px !important;
     height: auto;
     margin-bottom: 1.2rem !important;
   }
@@ -162,15 +165,15 @@ export default defineComponent({
     width: 100%;
   }
   .wide-column {
-    width: 50%;
+    width: 75%;
   }
   .my-col-small {
     flex: 0 0 25%; /* Equivalent to col-3 (3/12 columns = 25%) */
     max-width: 25%;
   }
   .my-col-wide {
-    flex: 0 0 75%; /* Equivalent to col-3 (3/12 columns = 25%) */
-    max-width: 75%;
+    flex: 0 0 75%; /* Equivalent to col-9 (9/12 columns = 25%) */
+    max-width: 75% !important;
   }
   // .show-on-desktop {
   //   display: none !important;

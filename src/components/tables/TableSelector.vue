@@ -239,7 +239,7 @@ icon-media {
   flex-wrap: wrap;
   column-fill: auto;
 }
-@media only screen and (min-width: 375px) and (max-width: 1023px) {
+@media only screen and (min-width: 375px) and (max-width: 1140px) {
   .icon-media {
     display: flex;
     flex-direction: column;

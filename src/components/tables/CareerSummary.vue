@@ -75,7 +75,7 @@ export default defineComponent({
   margin: 0.5rem auto;
   max-width: 40rem;
 }
-@media only screen and (min-width: 375px) and (max-width: 1024px) {
+@media only screen and (min-width: 375px) and (max-width: 1140px) {
   .media-font-size {
     font-size: x-small !important;
   }

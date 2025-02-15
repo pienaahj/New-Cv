@@ -169,7 +169,7 @@ export default defineComponent({
 .text-left {
   text-align: justify;
 }
-@media only screen and (min-width: 375px) and (max-width: 1024px) {
+@media only screen and (max-width: 1140px) {
   .card-media-home {
     display: flex;
     flex-direction: column;
