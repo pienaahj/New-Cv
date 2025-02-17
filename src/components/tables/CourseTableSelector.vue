@@ -159,7 +159,7 @@ export default defineComponent({
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
 }
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-device-width: 1200px) {
   .icon-media {
     display: flex;
     flex-direction: column;
@@ -204,8 +204,6 @@ export default defineComponent({
       color: $desert-sand !important;
     }
   }
-}
-@media only screen and (max-width: 1200px) {
   .tabnav-media {
     background-color: $silver-pink;
     border-radius: 12px;
@@ -215,4 +213,7 @@ export default defineComponent({
     max-width: 50rem;
   }
 }
+// @media only screen and (max-width: 1200px) {
+
+// }
 </style>

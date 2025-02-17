@@ -72,12 +72,8 @@ export default defineComponent({
   margin: 1rem auto;
   max-width: 100rem;
 }
+
 @media only screen and (max-width: 1200px) {
-  .show-on-desktop-only {
-    display: none !important;
-  }
-}
-@media only screen and (max-width: 1140px) {
   .card-media-home {
     display: flex;
     flex-direction: column;

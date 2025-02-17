@@ -77,7 +77,7 @@ export default defineComponent({
 // .show-on-desktop {
 //   display: none !important;
 // }
-@media only screen and (min-width: 375px) and (max-width: 1140px) {
+@media only screen and (max-device-width: 1200px) {
   .layout-media {
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@ export default defineComponent({
   }
 }
 
-@media only screen and (min-width: 1141px) {
+@media only screen and (min-width: 1201px) {
   .layout-media {
     display: flex;
     flex-direction: column;

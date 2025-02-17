@@ -11,9 +11,13 @@
     <MDBNavbarBrand href="#">
       <img :src="logo" height="100" alt="" loading="lazy" class="zoom" />
     </MDBNavbarBrand>
-    <!-- <MDBNavbarToggler @click="collapse1 = !collapse1" target="#navbarSupportedContent">
-      <font-awesome-icon :icon="['fas', 'bars']" ref="togglerIcon" />
-    </MDBNavbarToggler> -->
+    <!-- <MDBNavbarToggler
+      @click="collapse1 = !collapse1"
+      target="#navbarSupportedContent"
+      togglerIcon="bars"
+    ></MDBNavbarToggler> -->
+    <!-- <font-awesome-icon :icon="['fas', 'bars']" ref="togglerIcon" /> -->
+    <!-- </MDBNavbarToggler> -->
     <div class="custom-toggler !important">
       <button @click="collapse1 = !collapse1">
         <font-awesome-icon v-if="!collapse1" :icon="['fas', 'bars']" />
